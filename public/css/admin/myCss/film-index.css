@@ -1,0 +1,32 @@
+.detail {
+    background: blue;
+    position: absolute;
+    top: 45px;
+    left: 12px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.see-detail {
+    color: rgb(66, 66, 255);
+}
+
+.pagination {
+    border-radius: 0;
+    border: 1px solid;
+    margin: 1px;
+    padding: 1px 10px;
+    color: black;
+    background-color: #fbf5ee;
+    display: inline-block;
+}
+
+.pagination:hover {
+    color: #fbf5ee;
+    background-color: #343A40;
+}
+
+.page-active {
+    color: #fbf5ee;
+    background-color: #343A40;
+}

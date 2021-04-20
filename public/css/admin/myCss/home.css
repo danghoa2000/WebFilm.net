@@ -1,0 +1,142 @@
+.card-outline {
+    height: 400px;
+    padding-top: 50px;
+}
+
+.col-md-3 {
+    margin-left: auto;
+}
+
+.col-md-5 {
+    margin-right: auto;
+}
+
+.input-edit-profile {
+    float: right;
+    padding-left: 10px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    outline: none;
+    display: none;
+}
+
+.bt-edit-profile {
+    position: relative;
+    top: -55px;
+}
+
+.hidden {
+    display: none;
+}
+
+label[class="error"] {
+    float: right;
+    color: red;
+    width: 100%;
+    text-align: right;
+    position: relative;
+    top: 10px;
+}
+
+.avatar-border {
+    display: inline-block;
+    border: 3px solid rgba(0, 0, 255, 0);
+    border-radius: 50%;
+}
+
+#icon_change_profile {
+    position: absolute;
+    color: blue;
+    font-size: 200%;
+    top: 35px;
+    left: 36px;
+    display: none;
+}
+
+.text-center {
+    cursor: pointer;
+}
+
+.text-center:hover .avatar-profile {
+    opacity: 0.2;
+}
+
+.text-center:hover .avatar-border {
+    border: 3px solid rgb(0, 0, 255);
+}
+
+.text-center:hover #icon_change_profile {
+    display: block;
+}
+
+.popup {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    top: 0;
+    background: #000000bd;
+    left: 0;
+    display: flex;
+}
+
+.popup-content {
+    background: #242526;
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.title-conten-popup {
+    text-align: center;
+    font-size: 200%;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    border-bottom: 1px solid #5e5e5e;
+}
+
+.popup-view {
+    height: 464px;
+}
+
+.popup-footer {
+    padding: 20px;
+    border-top: 1px solid #5e5e5e;
+    width: 100%;
+}
+
+.upload-avatar {
+    color: #54aeee;
+    background-color: #3C4D63;
+    width: 300px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 150px;
+    cursor: pointer;
+}
+
+.upload-avatar:hover {
+    background-color: #2f4055;
+}
+
+.preview-avatar {
+    margin: 0 125px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    display: none;
+}
+
+.profile-user-img {
+    height: 100px;
+}
+
+.nav-item p {
+    color: white;
+}

@@ -1,0 +1,45 @@
+.login__form form .input__item {
+    display: inline-block;
+}
+
+.signup .login__form:after {
+    display: none;
+}
+
+.custom-file-label {
+    height: 50px;
+    border-radius: 0;
+    top: -11px;
+    width: 370px;
+    padding: 13px 77px;
+    color: #bcbcbce0;
+}
+
+.custom-file-input:lang(en)~.custom-file-label::after {
+    display: none;
+}
+
+.login__form form .input__item2:before {
+    position: absolute;
+    left: 50px;
+    top: 1px;
+    height: 30px;
+    width: 1px;
+    background: #b7b7b7;
+    content: "";
+    z-index: 5;
+}
+
+label[class="error"] {
+    position: absolute;
+    color: red;
+    z-index: 6;
+    width: 370px;
+    left: 0px;
+    top: 46px;
+    font-size: 120%;
+}
+
+.input__item {
+    margin-bottom: 35px !important;
+}

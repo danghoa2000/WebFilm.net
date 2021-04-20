@@ -1,0 +1,47 @@
+#menu-edit {
+    list-style-type: none;
+    background-color: #343a40;
+    width: 100px;
+    position: absolute;
+    padding: 0px;
+    display: none;
+    top: 31px;
+    right: 0px;
+    border-radius: 4px;
+    border: 1px solid rgb(159 159 159 / 53%);
+}
+
+#menu-edit li {
+    text-align: center;
+    padding: 5px;
+}
+
+#menu-edit a {
+    color: white;
+    display: block;
+}
+
+#menu-edit li:hover {
+    background-color: #586069;
+}
+
+#button-menu {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0);
+    position: relative;
+}
+
+#button-menu:hover {
+    background-color: #343a40;
+    border: 1px solid rgb(159 159 159 / 53%);
+    border-radius: 5px;
+}
+
+#button-menu:hover i {
+    color: white;
+}
+
+#button-menu:hover #menu-edit {
+    display: block;
+}
