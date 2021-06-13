@@ -78,6 +78,6 @@
     'normal' => $rootDir . '/lib/fonts/DejaVuSerif',
   ),
   'on-i-gothic' => array(
-    'normal' => $fontDir . '/on_i_gothic_normal_0aa8390c2b372de74ba226b71575833c',
+    'normal' => $fontDir . '/on_i_gothic_normal_7a70bef211bff4ee6717c4951122d5c3',
   ),
 ) ?>

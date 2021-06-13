@@ -16,28 +16,6 @@ $('#bt-cancel').click(function() {
     $('#name-error').fadeOut();
 })
 
-$(document).ready(function() {
-    $("#edit-admin-form").validate({
-        rules: {
-            name: {
-                required: true,
-                maxlength: 255
-            },
-
-        }
-    });
-});
-
-$(document).ready(function() {
-    $("#update_avatar").validate({
-        rules: {
-            avatar: {
-                extension: "png|jpg|jpeg|jfif"
-            },
-        }
-    });
-});
-
 $("#upload-avatar").click(function() {
     $("#input-change-avatar").val("");
     $("#save-change-avatar").prop('disabled', true);

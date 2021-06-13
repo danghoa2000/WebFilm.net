@@ -1,0 +1,16 @@
+.destroy-follow {
+    position: relative;
+    z-index: 2;
+    background: black;
+    padding: 5px 10px;
+    float: right;
+}
+
+.bt-x {
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.bt-x:hover {
+    color: red;
+}

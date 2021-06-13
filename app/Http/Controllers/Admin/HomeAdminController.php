@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Services\Service;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Config;
+use Illuminate\Support\Facades\Hash;
 
 class HomeAdminController extends Controller
 {
@@ -31,49 +31,71 @@ class HomeAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $data = Auth::guard('admin')->user();
         return view('admin.home', ['data' => $data]);
     }
 
     /**
-     * Update the specified resource in storage.
+     * update profile of administrator.
      *
-     * @param  CategoryRequest  $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function updateProfile(Request $request){
-        DB::transaction(function () use($request) {
-            Admin::where('user_name', $request->user_name)->update(
-                    [
-                        'name' => $request->name,
-                        'birthday' => $request->birthday,
-                    ]
-            );
-        });
+        $admin = Admin::select(
+            'id',
+            'name',
+            'birthday',
+            'password',
+        )->where('user_name', $request->user_name)->first();
 
-        // if (Config::get('app.locale') == "en") {
-            // Alert::success('Success','successfully updated category');
-        // }
-        // else{
-            Alert::success('Thành công','Sửa profile thành công');
-        // }
+        $admin->name = $request->name;
+        $admin->birthday = $request->birthday;
+        if ($request->password) {
+            $admin->password = Hash::make($request->new_password);
+        }
+        $admin->save();
 
-        return redirect() -> back() -> withInput();
+        Alert::success('Thành công', 'Sửa profile thành công');
+
+        return redirect()->back()->withInput();
     }
 
+    /**
+     * update admin avatar.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function updateAvatar(Request $request)
     {
         DB::transaction(function () use($request) {
             Admin::where('id', $request->popup_value_id)->update(
                 [
-                    'avatar' => '/upload/avatar/'.$this->Service->uploadimg($request),
+                    'avatar' => '/upload/avatar/' . $this->Service->uploadimg($request),
                 ]
             );
         });
-        Alert::success('Thành công','Sửa avatar thành công');
-        return redirect() -> back() -> withInput();
+
+        Alert::success('Thành công', 'Sửa avatar thành công');
+        return redirect()->back()->withInput();
     }
 
+    /**
+     * Check the password of the admin currently logged in.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return boolean
+     */
+    public function checkPassword(Request $request)
+    {
+        $password = $request->password;
+        if (Hash::check($password, Auth::guard('admin')->user()->password)) {
+            return "true";
+        } else {
+            return "false";
+        }
+    }
 }

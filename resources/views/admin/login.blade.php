@@ -39,7 +39,7 @@
             @csrf
 
               <div class="form-group first">
-                <label for="user_name">{{__('Username')}}</label>
+                <label for="user_name">{{__('User name')}}</label>
                 <input type="text" class="form-control @error('user_name') is-invalid @enderror" id="user_name" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocus>
                 @error('user_name')
                   <span class="invalid-feedback" role="alert">
@@ -57,30 +57,23 @@
                     </span>
                 @enderror
               </div>
-
               <div class="d-flex mb-5 align-items-center">
                 <label class="control control--checkbox mb-0"><span class="caption">{{__('Remember me')}}</span>
                   <input type="checkbox" checked="checked"/>
                   <div class="control__indicator"></div>
                 </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">{{__('Forgot Password')}}</a></span>
+                <span class="ml-auto"><a href="{{route('adminResetPassword')}}" class="forgot-pass">{{__('Forgot Password')}}</a></span>
               </div>
-
               <button type="submit" class="btn btn-block btn-primary">
                 {{ __('Login') }}
               </button>
-
-
             </form>
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
   </div>
-
 
     <script src="{{ asset('js/admin/jquery-3.3.1.min.js')}}"></script>
     <script src="{{ asset('js/admin/popper.min.js ')}}"></script>

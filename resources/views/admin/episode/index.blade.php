@@ -19,6 +19,7 @@
                 <th class="text-left" scope="col">{{__('Id Film')}}</th>
                 <th class="text-left" scope="col">{{__('Episode')}}</th>
                 <th class="text-left" scope="col">{{__('Link')}}</th>
+                <th class="text-left" scope="col">{{__('Time updated')}}</th>
                 <th class="text-left" scope="col"></th>
                 </tr>
             </thead>
@@ -33,6 +34,7 @@
                             {{__('see link')}}
                         </span>
                     </td>
+                    <td class="text-left">{{$row->updated_at}}</td>
                     <td class="text-right">
                         <div>
                             <span id="button-menu"><i class="fas fa-bars"></i>
@@ -91,15 +93,17 @@
                 confirmButtonText: "{{__('Confirm')}}",
                 cancelButtonText: "{{__('Cancel')}}",
             }).then(function(result) {
-                var data = result.value;
-                jQuery.ajax({
-                    url:'{{route("episode_destroy","")}}/'+id_episode,
-                    type: "get",
-                    success: function (){
-                    swal( "{{__('Success!')}}",data.msg,'success' );
-                    location.reload();;
-                    }
-                });
+                if (result["value"] == true) {
+                    var data = result.value;
+                    jQuery.ajax({
+                        url:'{{route("episode_destroy","")}}/'+id_episode,
+                        type: "get",
+                        success: function (){
+                        swal( "{{__('Success!')}}",data.msg,'success' );
+                        location.reload();;
+                        }
+                    });
+                }
             });
         }
   </script>

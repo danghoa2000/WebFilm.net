@@ -32,3 +32,7 @@ label[id="movie-background-error"] {
     top: 40px;
     left: 280px;
 }
+
+label[class="custom-file-label"] {
+    overflow: hidden !important;
+}

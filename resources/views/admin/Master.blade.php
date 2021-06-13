@@ -61,11 +61,11 @@
           <i id="language" class="flag-icon flag-icon-us"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right p-0">
-          <a href="" class="dropdown-item active">
+          <a href="{{route('change-language','')}}/en" class="dropdown-item">
             <i class="flag-icon flag-icon-us mr-2"></i> English
           </a>
-          <a href="" class="dropdown-item">
-            <i class="flag-icon flag-icon-vn mr-2"></i> Vietnamese
+          <a href="{{route('change-language','')}}/vi" class="dropdown-item">
+            <i class="flag-icon flag-icon-vn mr-2"></i> Tiếng việt
           </a>
         </div>
       </li>
@@ -240,6 +240,33 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item has-treeview" id="master_statistical">
+                <a href="#" class="nav-link" >
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                    {{__('Statistical')}}
+                    <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview" id="statistical_index">
+                    <li class="nav-item">
+                        <a href="{{route('statistical_index')}}" id="statistical" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            {{__('Chart')}}
+                        </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('statistical_list')}}" id="statistical_list" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            {{__('List')}}
+                        </p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -261,9 +288,10 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
 <script src="{{ asset('js/admin/popper.min.js')}}"></script>
 <!-- jQuery -->
-<script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/plugins/jquery/jquery.min.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -277,11 +305,7 @@
 <!-- Sparkline -->
 <script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
-<script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-<script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-<!-- jQuery Knob Chart -->
-<script src="AdminLTE-3.0.5/AdminLTE-3.0.5/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
-<!-- daterangepicker -->
+
 <script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/plugins/moment/moment.min.js')}}"></script>
 <script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
@@ -293,7 +317,6 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/dist/js/pages/dashboard.js')}}"></script>
 <script src="{{ asset('AdminLTE-3.0.5/AdminLTE-3.0.5/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>

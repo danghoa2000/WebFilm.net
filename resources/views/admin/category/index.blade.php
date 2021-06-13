@@ -82,15 +82,17 @@
                 confirmButtonText: "{{__('Confirm')}}",
                 cancelButtonText: "{{__('Cancel')}}",
             }).then(function(result) {
-                var data = result.value;
-                jQuery.ajax({
-                    url:'{{route("category_destroy","")}}/'+id_category,
-                    type: "get",
-                    success: function (){
-                    swal( "{{__('Success!')}}",data.msg,'success' );
-                    location.reload();;
-                    }
-                });
+                if (result["value"] == true) {
+                    var data = result.value;
+                    jQuery.ajax({
+                        url:'{{route("category_destroy","")}}/'+id_category,
+                        type: "get",
+                        success: function (){
+                        swal( "{{__('Success!')}}",data.msg,'success' );
+                        location.reload();;
+                        }
+                    });
+                }
             });
         }
 

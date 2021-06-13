@@ -28,25 +28,25 @@
                     <div class="login__form">
                         <form action="{{route('performSignupUser')}}" method="post" id="singup"  enctype="multipart/form-data">
                         @csrf
-                            <h3>Sign Up</h3>
+                            <h3>{{__('Sign Up')}}</h3>
                                 <div class="input__item">
-                                    <input type="email" placeholder="Email address" name="email" autofocus>
+                                    <input type="email" placeholder="Email address" name="email" autofocus autocomplete="off">
                                     <span class="icon_mail"></span>
                                 </div>
                                 <div class="input__item">
-                                    <input type="text" placeholder="Your Name" name="name" autofocus>
+                                    <input type="text" placeholder="Your Name" name="name" autofocus autocomplete="off">
                                     <span class="icon_profile"></span>
                                 </div>
                                 <div class="input__item">
-                                    <input type="text" placeholder="User Name" name="user_name" autofocus>
+                                    <input type="text" placeholder="User Name" name="user_name" autofocus autocomplete="off">
                                     <span class="icon_lock"></span>
                                 </div>
                                 <div class="input__item">
-                                    <input type="password" placeholder="Password" name="password" autofocus>
+                                    <input type="password" placeholder="Password" name="password" autofocus autocomplete="off">
                                     <span class="icon_lock"></span>
                                 </div>
                                 <div class="input__item">
-                                    <input type="date" name="birthday" autofocus>
+                                    <input type="date" name="birthday" autofocus autocomplete="off">
                                     <span class="icon_profile"></span>
                                 </div>
                                 <div class="input__item input__item2">
@@ -65,15 +65,15 @@
                                             </span>
                                         @enderror
                                         <div class="form-group row" style="margin-bottom: 0px;position: absolute;top: 50px;right: -184px;">
-                                            <div class="input-group col-md-6">
-                                                <img src="" alt="" id="img_avatar" style="max-width:150px; max-height:150px">
+                                            <div class="input-group col-md-6" style="display: block">
+                                                <img src="" alt="" id="img_avatar" style="width:150px;height:150px;border-radius:50%;max-width: none !important;display:none">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="site-btn">Sign up Now</button>
-                            <h5>Already have an account? <a href="{{route('user_login')}}">Log In!</a></h5>
+                            <button type="submit" class="site-btn">{{__('Sign up Now')}}</button>
+                            <h5>{{__('Already have an account?')}} <a href="{{route('user_login')}}">{{__('Log In')}}!</a></h5>
                         </form>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                     minlength: 6
                 },
                 avatar: {
-                    extension: "png|jpg|jpeg"
+                    extension: "png|jpg|jpeg|jfif"
                 }
             },
             messages: {
@@ -159,7 +159,7 @@
                     minlength: "phải lớn hơn 6 kí tự",
                 },
                 avatar: {
-                    extension: "file được chọn phải thuộc jpg,jpeg,png"
+                    extension: "file được chọn phải thuộc jpg,jpeg,png,jfif"
                 }
             }
         })

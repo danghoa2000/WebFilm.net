@@ -3,11 +3,18 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\Job;
+use App\Mail\UserMail;
+use App\Models\Category;
+use App\Models\PasswordReset;
 use App\Models\User;
 use App\Services\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 class LoginUserController extends Controller
 {
@@ -27,7 +34,7 @@ class LoginUserController extends Controller
     /**
      * Displays the user's login page
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function login()
     {
@@ -37,8 +44,8 @@ class LoginUserController extends Controller
     /**
      * perform login
      *
-     * @param  Request  $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function performLogin(Request $request)
     {
@@ -46,11 +53,9 @@ class LoginUserController extends Controller
                             'password' => $request->password,
                             'flag_delete' => ACTIVE]))
         {
-            dd(1);
-            return redirect() -> route('user_login');
+            return redirect()->route('user_home_index');
         } else {
-            dd(2);
-            return redirect() -> back() -> withInput();
+            return redirect()->back()->withInput();
         }
     }
 
@@ -58,7 +63,7 @@ class LoginUserController extends Controller
     /**
      * Displays the user's login page
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function signup()
     {
@@ -68,8 +73,8 @@ class LoginUserController extends Controller
     /**
      * perform signup
      *
-     * @param  Request  $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function performSignup(Request $request)
     {
@@ -81,8 +86,8 @@ class LoginUserController extends Controller
             'birthday' => $request->birthday,
         ];
 
-        if ($request->hasFile('avatar') ) {
-            $request->avatar = '/upload/avatar/'.$this->Service->uploadimg($request);
+        if ($request->hasFile('avatar')) {
+            $request->avatar = '/upload/avatar/' . $this->Service->uploadimg($request);
             $array = $array + [ 'avatar' => $request->avatar];
         }
 
@@ -90,7 +95,7 @@ class LoginUserController extends Controller
             User::insert([$array]);
         });
 
-        return redirect() -> route('user_login');
+        return redirect()->route('user_login');
     }
 
     /**
@@ -102,18 +107,19 @@ class LoginUserController extends Controller
     public function logout(Request $request)
     {
         Auth::guard('web')->logout();
-        return redirect() -> route('user_login');
+        return redirect()->back()->withInput();
     }
 
     /**
      * Check email in db.
      *
-     * @param Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return boolean
      */
     public function checkEmail(Request $request)
     {
-        $data = User::where('email',$request->email)->select('email')->first();
+        $data = User::where('email', $request->email)->select('email')->first();
+
         if ($data) {
             return "false";
         }else{
@@ -124,16 +130,37 @@ class LoginUserController extends Controller
     /**
      * Check user_name in db.
      *
-     * @param Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return boolean
      */
     public function checkUserName(Request $request)
     {
-        $data = User::where('user_name',$request->user_name)->select('user_name')->first();
+        $data = User::where('user_name', $request->user_name)->select('user_name')->first();
+
         if ($data) {
             return "false";
         }else{
             return "true";
         }
+    }
+
+    public function resetPassword()
+    {
+        return view('resetPassword.forgotPassword');
+    }
+
+    public function sendMail(Request $request)
+    {
+        $token = str_replace("/", "2", bcrypt(Str::random(TOKEN_LENGTH)));
+
+        PasswordReset::create([
+            'email' => $request->email,
+            'token' => $token,
+            'status' => 2
+        ]);
+
+        dispatch(new Job($request->email, "resetPassword.emailForgotPassword", $token));
+        Alert::success('Success', 'Password change link has been sent to your email');
+        return redirect() -> back();
     }
 }

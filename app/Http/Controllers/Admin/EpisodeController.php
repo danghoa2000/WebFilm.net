@@ -28,6 +28,7 @@ class EpisodeController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function index($id)
@@ -36,8 +37,9 @@ class EpisodeController extends Controller
             'id',
             'id_film',
             'link',
-            'tap_so'
-        ) -> where('id_film', $id) -> Paginate(15);
+            'tap_so',
+            'updated_at'
+        )->where('id_film', $id)->Paginate(15);
 
         return view('admin.episode.index', ['data' => $data, 'id' => $id]);
     }
@@ -45,6 +47,7 @@ class EpisodeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function create($id)
@@ -61,12 +64,12 @@ class EpisodeController extends Controller
     public function store(Request $request)
     {
         $file =  $request->file('link');
-        $fileName = time() . $request->id_film. '.' . $file -> getClientOriginalExtension();
-        $request -> link -> move(public_path('/upload/mp4/'), $fileName);
+        $fileName = time() . $request->id_film. '.' . $file->getClientOriginalExtension();
+        $request->link->move(public_path('/upload/mp4/'), $fileName);
         DB::transaction(function () use($request, $fileName) {
             $episode = new Episode();
-            $episode->id_film = $request -> id_film;
-            $episode->tap_so = $request -> tap_so;
+            $episode->id_film = $request->id_film;
+            $episode->tap_so = $request->tap_so;
             $episode->link = '/upload/mp4/'. $fileName;
             $episode->save();
             Film::where('id', $request -> id_film)->update(
@@ -81,17 +84,6 @@ class EpisodeController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -103,7 +95,7 @@ class EpisodeController extends Controller
             'id',
             'tap_so',
             'link'
-        ) -> where('id', $id) -> first();
+        )->where('id', $id)->first();
 
         return view('admin.episode.edit', ['data' => $data]);
     }
@@ -112,7 +104,6 @@ class EpisodeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -122,37 +113,38 @@ class EpisodeController extends Controller
             'tap_so',
             'link',
             'id_film'
-        ) -> where('id', $request->id) -> first();
+        )->where('id', $request -> id)->first();
 
-        $episode->tap_so = $request->tap_so;
+        $episode -> tap_so = $request -> tap_so;
 
         if ($request->hasFile('link')) {
             $file =  $request->file('link');
-            $fileName = time() . $request->id. '.' . $file -> getClientOriginalExtension();
-            $request -> link -> move(public_path('/upload/mp4/'), $fileName);
-            $episode->link = "/upload/mp4/".$fileName;
+            $fileName = time() . $request->id. '.' . $file->getClientOriginalExtension();
+            $request->link->move(public_path('/upload/mp4/'), $fileName);
+            $episode->link = "/upload/mp4/" . $fileName;
             Film::where('id', $episode -> id_film)->update(
                 [
                     'updated_at' => Carbon::now()->toDateTimeString()
                 ]
             );
         }
-        $episode->save();
+        $episode -> save();
 
-        return redirect() -> route('episode_index',['id' => $episode -> id_film]);
+        return redirect() -> route('episode_index', ['id' => $episode -> id_film]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return boolean
      */
     public function destroy($id)
     {
-        DB::transaction(function () use($id){
-            Episode::where('id', $id)->delete();
+        DB::transaction(function () use($id) {
+            Episode::where('id', $id) -> delete();
         });
+
         return "true";
     }
 }

@@ -19,7 +19,7 @@ class CategoryController extends Controller
         $data = Category::select(
             'id',
             'name'
-        ) -> where('flag_delete', ACTIVE) -> Paginate(15);
+        )->where('flag_delete', ACTIVE)->Paginate(15);
 
         return view('admin.category.index', ['data' => $data]);
     }
@@ -46,20 +46,9 @@ class CategoryController extends Controller
             'name' => $request->name
         ]);
 
-        Alert::success('Success','add category successfully');
+        Alert::success('Success', 'add category successfully');
 
-        return redirect() -> route('category_index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('category_index');
     }
 
     /**
@@ -73,7 +62,7 @@ class CategoryController extends Controller
         $data = Category::select(
             'id',
             'name'
-        )->where('id', $id) -> first();
+        )->where('id', $id)->first();
 
         return view('admin.category.edit', ['data' => $data]);
     }
@@ -82,7 +71,6 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -91,22 +79,23 @@ class CategoryController extends Controller
                 'name' => $request->name
         ]);
 
-        return redirect() -> route('category_index');
+        return redirect()->route('category_index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return boolean
      */
     public function destroy($id)
     {
-        Category::where('id', $id) -> update(
+        Category::where('id', $id)->update(
             [
                 'flag_delete' => INACTIVE
             ]
         );
+
         return "true";
     }
 }

@@ -11,18 +11,18 @@ class UserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $request;
-    protected $data;
+    public $view;
+    public $token;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($request, $data)
+    public function __construct($view, $token)
     {
-        $this->request = $request;
-        $this->data = $data;
+        $this->view = $view;
+        $this->token = $token;
     }
 
     /**
@@ -32,6 +32,6 @@ class UserMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Email from manager')->view($this->request,['data' => $this->data]);
+        return $this->subject('Email from manager')->view($this->view, ['token' => $this->token]);
     }
 }

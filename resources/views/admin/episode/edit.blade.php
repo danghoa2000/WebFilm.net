@@ -10,6 +10,9 @@
         .error{
             color: red !important;
         }
+        .custom-file-label {
+            overflow: hidden !important;
+        }
     </style>
 @endsection
 
@@ -18,7 +21,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('Episode ')}}</h1>
+                    <h1>{{__('Episode')}}</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -55,7 +58,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary" style="float: right">{{__('Create Episode')}}</button>
+                    <button type="submit" class="btn btn-primary" style="float: right">{{__('Save changes')}}</button>
                     <a href="javascript:history.back()" class="btn btn-secondary" style="float: right;margin-right:5px">{{__('Cancel')}}</a>
                 </div>
                 </form>

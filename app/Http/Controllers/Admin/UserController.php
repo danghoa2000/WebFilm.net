@@ -12,6 +12,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -23,10 +24,10 @@ class UserController extends Controller
             'user_name',
             'email',
             'birthday'
-        ) ->where('flag_delete', ACTIVE)
-        ->where('name','like',"%$request->search%")
-        ->orwhere('user_name','like',"%$request->search%")
-        -> Paginate(15);
+        )->where('flag_delete', ACTIVE)
+        ->where('name', 'like', "%$request->search%")
+        ->orwhere('user_name', 'like', "%$request->search%")
+        ->Paginate(15);
 
         return view('admin.user.index', ['data' => $data, 'search' => $request->search]);
     }
@@ -35,7 +36,7 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return boolean
      */
     public function destroy($id)
     {

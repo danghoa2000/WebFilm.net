@@ -40,20 +40,20 @@ class SendMail extends Command
      */
     public function handle()
     {
-        $data = Product::join('product_categories','product_categories.id','=','products.category_id')
-        ->where('flag_delete', ACTIVE)
-        ->select(
-            'products.id',
-            'products.sku',
-            'products.name',
-            'products.stock',
-            'products.avatar',
-            'products.expired_at',
-            'products.category_id',
-            'product_categories.name_category'
-        )->get();
-        $data = json_decode(json_encode($data),true);
+        // $data = Product::join('product_categories','product_categories.id','=','products.category_id')
+        // ->where('flag_delete', ACTIVE)
+        // ->select(
+        //     'products.id',
+        //     'products.sku',
+        //     'products.name',
+        //     'products.stock',
+        //     'products.avatar',
+        //     'products.expired_at',
+        //     'products.category_id',
+        //     'product_categories.name_category'
+        // )->get();
+        // $data = json_decode(json_encode($data),true);
 
-        Mail::to(env('MAIL_USERNAME'))->send(new \App\Mail\UserMail('user.product.emailList',$data));
+        // Mail::to(env('MAIL_USERNAME'))->send(new \App\Mail\UserMail('user.product.emailList',$data));
     }
 }

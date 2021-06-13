@@ -29,6 +29,8 @@ class Comment extends Model
         'name',
         'avatar',
         'noi_dung',
-        'id_film'
+        'id_film',
+        'created_at',
+        'updated_at'
     ];
 }

@@ -18,7 +18,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('Category ')}}</h1>
+                    <h1>{{__('Category')}}</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary" style="float: right">{{__('Create Episode')}}</button>
+                    <button type="submit" class="btn btn-primary" style="float: right">{{__('Create Category')}}</button>
                     <a href="{{route('category_index')}}" class="btn btn-secondary" style="float: right;margin-right:5px">{{__('Cancel')}}</a>
                 </div>
                 </form>

@@ -29,16 +29,16 @@
                         <form action="{{route('performLoginUser')}}" method="post">
                         @csrf
                             <div class="input__item">
-                                <input type="text" placeholder="User Name" name="user_name">
+                                <input type="text" placeholder="User Name" name="user_name" autocomplete="off">
                                 <span class="icon_profile"></span>
                             </div>
                             <div class="input__item">
-                                <input type="password" placeholder="Password" name="password">
+                                <input type="password" placeholder="Password" name="password" autocomplete="off">
                                 <span class="icon_lock"></span>
                             </div>
                             <button type="submit" class="site-btn">{{__('Login Now')}}</button>
                         </form>
-                        <a href="#" class="forget_pass">{{__('Forgot Your Password?')}}</a>
+                        <a href="{{route('userResetPassword')}}" class="forget_pass">{{__('Forgot Your Password?')}}</a>
                     </div>
                 </div>
                 <div class="col-lg-6">

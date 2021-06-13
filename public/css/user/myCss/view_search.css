@@ -1,0 +1,29 @@
+.normal-breadcrumb {
+    height: 170px !important;
+}
+
+.nice-select {
+    width: 155px;
+    clear: none !important;
+    margin: 5px;
+}
+
+.option-search {
+    margin: 20px 0px 0;
+}
+
+.bt-search {
+    border: 0px;
+    border-radius: 5px;
+    height: 42px;
+    width: 80px;
+    background: #ff2f2f;
+    margin: 5px;
+    color: white;
+}
+
+.value-search p {
+    font-size: 25px;
+    color: #858585;
+    display: inline-block;
+}

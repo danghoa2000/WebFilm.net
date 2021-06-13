@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('Film ')}}</h1>
+                    <h1>{{__('Film')}}</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -32,7 +32,7 @@
                                     <input type="text" class="form-control" name="name" placeholder="Movie's Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">{{__('Year of manufacture')}}</label>
+                                    <label for="exampleInputPassword1">{{__('Year of release')}}</label>
                                     <input type="number" class="form-control" name="nam_sx" placeholder="2021">
                                 </div>
                                 <div class="form-group">

@@ -2,6 +2,11 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/admin/myCss/film-create.css')}}">
+    <style>
+        .img-upload-preview, .img-upload-preview-background{
+            display: block !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -9,7 +14,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('Film ')}}</h1>
+                    <h1>{{__('Film')}}</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -20,7 +25,7 @@
             <div class="col-md-12">
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">{{__('Create Form')}}</h3>
+                  <h3 class="card-title">{{__('Edit Form')}}</h3>
                 </div>
                 <form role="form" action="{{route('film_update')}}" method="POST" id="film-create" enctype="multipart/form-data">
                 @csrf
@@ -33,7 +38,7 @@
                                     <input type="text" class="form-control" name="name" placeholder="Movie's Name" value="{{$film->name}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">{{__('Year of manufacture')}}</label>
+                                    <label for="exampleInputPassword1">{{__('Year of release')}}</label>
                                     <input type="number" class="form-control" name="nam_sx" placeholder="2021" value="{{$film->nam_sx}}">
                                 </div>
                                 <div class="form-group">

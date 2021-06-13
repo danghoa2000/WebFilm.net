@@ -1,0 +1,40 @@
+#lb-name-comment {
+    display: none;
+    color: red;
+}
+
+.anime__details__form form textarea {
+    margin-bottom: 3px;
+}
+
+#name_comment {
+    color: #b7b7b7;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 10px 10px 10px 0px;
+    width: 210px;
+}
+
+.delete-comment {
+    color: red;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+.anime__review__item__text:hover .delete-comment {
+    display: inline-block;
+}
+
+.See-more-comments {
+    text-align: center;
+    color: aliceblue;
+    background-color: #007bffc4;
+    width: 100%;
+    height: 35px;
+    border: 0px;
+    border-radius: 10px;
+    outline: none;
+}

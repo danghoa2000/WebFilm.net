@@ -26,6 +26,8 @@ class Episode extends Model
     protected $fillable = [
         'id_film',
         'link',
-        'tap_so'
+        'tap_so',
+        'updated_at',
+        'created_at'
     ];
 }

@@ -1,0 +1,85 @@
+.anime__details__title {
+    width: 705px;
+}
+
+.anime__details__pic {
+    width: 275px;
+}
+
+.name-film {
+    display: inline-block;
+    background-color: rgba(1, 1, 1, 0.6);
+    padding: 0px 10px 0px;
+    border-radius: 5px;
+}
+
+.anime__details__form form textarea {
+    margin-bottom: 3px;
+}
+
+#name_comment {
+    color: #b7b7b7;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 10px 10px 10px 0px;
+    width: 210px;
+}
+
+#lb-name-comment {
+    color: red;
+    display: none;
+}
+
+.yellow {
+    color: #e89f12 !important;
+}
+
+.gold {
+    color: #e89f12;
+}
+
+.gray {
+    color: #959595;
+}
+
+.gray2 {
+    color: #959595;
+}
+
+.delete-comment {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+.anime__review__item__text:hover .delete-comment {
+    display: inline-block;
+}
+
+.See-more-comments {
+    text-align: center;
+    color: aliceblue;
+    background-color: #007bffc4;
+    width: 100%;
+    height: 35px;
+    border: 0px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.trailer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    z-index: 2;
+    display: none;
+}
+
+.trailer video {
+    margin: auto;
+    width: 80%;
+    border-radius: 5px;
+}
