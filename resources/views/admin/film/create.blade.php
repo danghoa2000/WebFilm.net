@@ -99,7 +99,6 @@
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary" style="float: right">{{__('Create movie')}}</button>
-                        <a class="btn btn-success" style="float: right; color:white;margin-right: 5px">{{__('Preview')}}</a>
                     </div>
                 </form>
               </div>

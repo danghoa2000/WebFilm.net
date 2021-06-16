@@ -109,3 +109,37 @@ $(".trailer").click(function(e) {
 $("#trailler").click(function(e) {
     $(".trailer").css('display', 'flex');
 });
+
+function loadComment(page) {
+    $.ajax({
+        type: "get",
+        url: "/comment/get?page=" + page,
+        data: {
+            id: function() {
+                return $("#id_film").val();
+            }
+        },
+        success: function(response) {
+            if (response[0] == null) {
+                $("#see-more-comment").css("display", "none");
+            }
+            response.forEach(data => {
+                $("#view-comment").append(
+                    function() {
+                        var a = "";
+                        a += "<div class='anime__review__item'>" +
+                            "<div class='anime__review__item__pic'>" +
+                            "<img src='" + data[0] + "' alt=''>" +
+                            "</div>" +
+                            "<div class='anime__review__item__text' style='position: relative'>" +
+                            "<h6>" + data[1] + " - <span>" + data[3] + "</span></h6>" +
+                            "<p>" + data[2] + "</p>" +
+                            "</div>"  +
+                            "</div>"
+                        return a;
+                    }
+                );
+            });
+        }
+    });
+}

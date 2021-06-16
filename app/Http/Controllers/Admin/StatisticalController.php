@@ -100,6 +100,7 @@ class StatisticalController extends Controller
                 $films = $films->select('film.id', 'film.name', DB::raw('SUM(views_from_time_to_time.luot_xem) AS view'));
                 break;
         }
+        $films = $films->where('flag_delete', ACTIVE);
         $films = isset($request->order) ? $films->groupBy('film.id', 'film.name', 'time') : $films->groupBy('film.id', 'film.name');
             if (isset($request->sort)) {
                 $films = $request->sort == 'View' ? $films->orderBy('view', $request->direction) : $films;

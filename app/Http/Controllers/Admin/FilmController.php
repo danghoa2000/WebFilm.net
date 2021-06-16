@@ -47,7 +47,9 @@ class FilmController extends Controller
             'quoc_gia',
             'link_trailer'
         )->where('flag_delete', 1)
-        ->where('name', 'like', "%$request->search%")->Paginate(15);
+        ->where('name', 'like', "%$request->search%")
+        ->orderBy('updated_at', 'DESC')
+        ->Paginate(15);
 
         $category = CategoryFilm::join('category', 'category.id', '=', 'category_film.id_category')
             ->select('category.name', 'category_film.id_film')
@@ -109,12 +111,7 @@ class FilmController extends Controller
             }
 
         });
-        // if (Config::get('app.locale') == "en") {
-            Alert::success('Success','add category successfully');
-        // }
-        // else{
-        //     Alert::success('Thành công','Thêm thể loại thành công');
-        // }
+        Alert::success('Success','add category successfully');
 
         return redirect()->route('film_index');
     }
