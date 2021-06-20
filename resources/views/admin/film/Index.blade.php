@@ -4,7 +4,11 @@
     <link rel="stylesheet" href="{{ asset('css/admin/myCss/film-index.css')}}">
     <link rel="stylesheet" href="{{ asset('css/user/elegant-icons.css ')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/admin/myCss/menu-edit.css ')}}">
-
+    <style>
+        /* .test:hover {
+            border: 1px solid red;
+        } */
+    </style>
 @endsection
 
 @section('search')
@@ -45,7 +49,7 @@
                 @foreach($data as $row)
                 <tr>
                     <td class="text-left">{{$row->id}} </td>
-                    <td class="text-left"><img src="{{$row->img}}" style="width: 100px;height:120px"></td>
+                    <td class="text-left test"><img src="{{$row->img}}" style="width: 100px;height:120px"></td>
                     <td class="text-left">{{$row->name}}</td>
                     <td class="text-left">{{$row->IMDb}}</td>
                     <td class="text-left">{{$row->nam_sx}}</td>
@@ -145,5 +149,12 @@
                 }
             });
         }
+
+        $(".test").hover(function () {
+                $(".test")
+            }, function () {
+                // out
+            }
+        );
   </script>
 @endsection
