@@ -24,13 +24,6 @@ class FilmDetailController extends Controller
      */
     public function index($id)
     {
-        $test = Film::leftjoin('category_film', 'category_film.id_film', '=', 'film.id')
-        ->leftjoin('category', 'category.id', '=', 'category_film.id_category')->where('film.id', $id)->where('category_film.id_category', 2)->first();
-        if ($test) {
-            Alert::question('question','bạn đã trên 18 tuổi chưa?');
-            return redirect() -> back();
-        }
-
         $data = Film::select(
             'id',
             'name',

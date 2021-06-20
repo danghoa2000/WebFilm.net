@@ -4,11 +4,6 @@
     <link rel="stylesheet" href="{{ asset('css/admin/myCss/film-index.css')}}">
     <link rel="stylesheet" href="{{ asset('css/user/elegant-icons.css ')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/admin/myCss/menu-edit.css ')}}">
-    <style>
-        /* .test:hover {
-            border: 1px solid red;
-        } */
-    </style>
 @endsection
 
 @section('search')
@@ -149,12 +144,5 @@
                 }
             });
         }
-
-        $(".test").hover(function () {
-                $(".test")
-            }, function () {
-                // out
-            }
-        );
   </script>
 @endsection
