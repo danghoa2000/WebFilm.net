@@ -61,10 +61,10 @@ $(document).ready(function() {
                 extension: "mp4"
             },
             avatar: {
-                extension: "png|jpg|jpeg|jfif"
+                extension: "png|jpg|jpeg|jfif",
             },
             background: {
-                extension: "png|jpg|jpeg|jfif"
+                extension: "png|jpg|jpeg|jfif",
             }
         },
         messages: {

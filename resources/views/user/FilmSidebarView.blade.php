@@ -43,7 +43,7 @@
         'img',
         'name',
         'luot_xem'
-    )->where('flag_delete', ACTIVE)->get()->random(5);
+    )->where('flag_delete', ACTIVE)->get();
 ?>
 <div class="col-lg-4 col-md-6 col-sm-8">
     <div class="product__sidebar">

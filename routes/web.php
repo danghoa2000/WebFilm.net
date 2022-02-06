@@ -38,43 +38,43 @@ Route::get('/admin/resetPassword/viewReset/{token}',[LoginAdminController::class
 Route::post('/admin/resetPassword/update/{token}',[LoginAdminController::class, 'updatePassword'])->name('updatePassword');
 
 Route::middleware('auth:admin')->group( function (){
-    Route::get('/admin/index', [HomeAdminController::class, 'index'])->name('admin_index');
-    Route::post('/admin/update-profile', [HomeAdminController::class, 'updateProfile'])->name('admin_update_profile');
-    Route::post('/admin/update-avatar', [HomeAdminController::class, 'updateAvatar'])->name('admin_update_avatar');
-    Route::post('/checkPassword', [HomeAdminController::class, 'checkPassword'])->name('checkPasswordAdmin');
-
-    Route::get('/admin/film/index', [FilmController::class, 'index'])->name('film_index');
-    Route::get('/admin/film/destroy/{id}', [FilmController::class, 'destroy'])->name('film_destroy');
-    Route::get('/admin/film/create', [FilmController::class, 'create'])->name('film_create');
-    Route::post('/admin/film/store', [FilmController::class, 'store'])->name('film_store');
-    Route::get('/admin/film/edit/{id}', [FilmController::class, 'edit'])->name('film_edit');
-    Route::post('/admin/film/update', [FilmController::class, 'update'])->name('film_update');
-
-    Route::get('/admin/episode/index/{id}', [EpisodeController::class, 'index'])->name('episode_index');
-    Route::get('/admin/episode/destroy/{id}', [EpisodeController::class, 'destroy'])->name('episode_destroy');
-    Route::get('/admin/episode/create/{id}', [EpisodeController::class, 'create'])->name('episode_create');
-    Route::post('/admin/episode/store', [EpisodeController::class, 'store'])->name('episode_store');
-    Route::get('/admin/episode/edit/{id}', [EpisodeController::class, 'edit'])->name('episode_edit');
-    Route::post('/admin/episode/update', [EpisodeController::class, 'update'])->name('episode_update');
-
-    Route::get('/admin/category/index', [CategoryController::class, 'index'])->name('category_index');
-    Route::get('/admin/category/destroy/{id}', [CategoryController::class, 'destroy'])->name('category_destroy');
-    Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('category_create');
-    Route::post('/admin/category/store', [CategoryController::class, 'store'])->name('category_store');
-    Route::get('/admin/category/edit/{id}', [CategoryController::class, 'edit'])->name('category_edit');
-    Route::post('/admin/category/update', [CategoryController::class, 'update'])->name('category_update');
-
-    Route::get('/admin/user/index', [UserController::class, 'index'])->name('user_index');
-    Route::get('/admin/user/destroy/{id}', [UserController::class, 'destroy'])->name('user_destroy');
-
-    Route::get('/admin/statistical/index', [StatisticalController::class, 'index'])->name('statistical_index');
-    Route::get('/admin/statistical/list', [StatisticalController::class, 'showList'])->name('statistical_list');
-    Route::get('/admin/statistical/list/csv', [StatisticalController::class, 'csv'])->name('statistical_csv');
-    Route::get('/admin/statistical/list/pdf', [StatisticalController::class, 'pdf'])->name('statistical_pdf');
-    Route::get('/admin/statistical/getValueChart', [StatisticalController::class, 'getValueChart'])->name('statistical_getValueChart');
-
-    Route::get('/admin/logout',[LoginAdminController::class, 'logout'])->name('logout');
 });
+Route::get('/admin/index', [HomeAdminController::class, 'index'])->name('admin_index');
+Route::post('/admin/update-profile', [HomeAdminController::class, 'updateProfile'])->name('admin_update_profile');
+Route::post('/admin/update-avatar', [HomeAdminController::class, 'updateAvatar'])->name('admin_update_avatar');
+Route::post('/checkPassword', [HomeAdminController::class, 'checkPassword'])->name('checkPasswordAdmin');
+
+Route::get('/admin/film/index', [FilmController::class, 'index'])->name('film_index');
+Route::get('/admin/film/destroy/{id}', [FilmController::class, 'destroy'])->name('film_destroy');
+Route::get('/admin/film/create', [FilmController::class, 'create'])->name('film_create');
+Route::post('/admin/film/store', [FilmController::class, 'store'])->name('film_store');
+Route::get('/admin/film/edit/{id}', [FilmController::class, 'edit'])->name('film_edit');
+Route::post('/admin/film/update', [FilmController::class, 'update'])->name('film_update');
+
+Route::get('/admin/episode/index/{id}', [EpisodeController::class, 'index'])->name('episode_index');
+Route::get('/admin/episode/destroy/{id}', [EpisodeController::class, 'destroy'])->name('episode_destroy');
+Route::get('/admin/episode/create/{id}', [EpisodeController::class, 'create'])->name('episode_create');
+Route::post('/admin/episode/store', [EpisodeController::class, 'store'])->name('episode_store');
+Route::get('/admin/episode/edit/{id}', [EpisodeController::class, 'edit'])->name('episode_edit');
+Route::post('/admin/episode/update', [EpisodeController::class, 'update'])->name('episode_update');
+
+Route::get('/admin/category/index', [CategoryController::class, 'index'])->name('category_index');
+Route::get('/admin/category/destroy/{id}', [CategoryController::class, 'destroy'])->name('category_destroy');
+Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('category_create');
+Route::post('/admin/category/store', [CategoryController::class, 'store'])->name('category_store');
+Route::get('/admin/category/edit/{id}', [CategoryController::class, 'edit'])->name('category_edit');
+Route::post('/admin/category/update', [CategoryController::class, 'update'])->name('category_update');
+
+Route::get('/admin/user/index', [UserController::class, 'index'])->name('user_index');
+Route::get('/admin/user/destroy/{id}', [UserController::class, 'destroy'])->name('user_destroy');
+
+Route::get('/admin/statistical/index', [StatisticalController::class, 'index'])->name('statistical_index');
+Route::get('/admin/statistical/list', [StatisticalController::class, 'showList'])->name('statistical_list');
+Route::get('/admin/statistical/list/csv', [StatisticalController::class, 'csv'])->name('statistical_csv');
+Route::get('/admin/statistical/list/pdf', [StatisticalController::class, 'pdf'])->name('statistical_pdf');
+Route::get('/admin/statistical/getValueChart', [StatisticalController::class, 'getValueChart'])->name('statistical_getValueChart');
+
+Route::get('/admin/logout',[LoginAdminController::class, 'logout'])->name('logout');
 
 //Route User
 Route::get('/', [HomeController::class, 'index'])->name('user_home_index');

@@ -92,14 +92,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            @if (Auth::guard('admin')->user()->avatar == null)
-                <img src="{{ asset('img/user/profile_none.png')}}" class="img-circle elevation-2" style="height: 2.1rem;" alt="User Image">
-            @else
-                <img src="{{ asset(Auth::guard('admin')->user()->avatar)}}" class="img-circle elevation-2" style="height: 2.1rem;" alt="User Image">
-            @endif
+          <img src="{{ asset('img/user/profile_none.png')}}" class="img-circle elevation-2" style="height: 2.1rem;" alt="User Image">
         </div>
         <div class="info" style="width: 180px; overflow: hidden;">
-          <a href="#" class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
 

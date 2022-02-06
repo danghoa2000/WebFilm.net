@@ -43,7 +43,7 @@
                                     <a href="{{route('detail_index', ['id' => $row->id])}}">
                                         <div class="product__item__pic set-bg" data-setbg="{{$row->img}}">
                                             <div class="ep">
-                                                {{$ep[$row->id]}}
+                                                {{-- {{$ep[$row->id]}} --}}
                                             </div>
                                             <div class="comment"><i class="fa fa-comments"></i>
                                                 @foreach ($comment as $item)
@@ -77,7 +77,7 @@
                                 <div class="product__item">
                                     <a href="{{route('detail_index', ['id' => $row->id])}}">
                                         <div class="product__item__pic set-bg" data-setbg="{{$row->img}}">
-                                            <div class="ep">{{$ep[$row->id]}}</div>
+                                            {{-- <div class="ep">{{$ep[$row->id]}}</div> --}}
                                             <div class="comment"><i class="fa fa-comments"></i>
                                                 @foreach ($comment as $item)
                                                     @if ($item->id_film == $row->id)

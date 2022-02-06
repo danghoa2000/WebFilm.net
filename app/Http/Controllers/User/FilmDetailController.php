@@ -45,7 +45,7 @@ class FilmDetailController extends Controller
             'img',
             'name',
             'luot_xem'
-        )->where('flag_delete', ACTIVE)->get()->random(4);
+        )->where('flag_delete', ACTIVE)->get();
 
         $ep1 = Episode::select(
             'id_film',

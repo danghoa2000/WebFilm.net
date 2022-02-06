@@ -36,9 +36,11 @@ class LoginAdminController extends Controller
     public function performLogin(Request $request)
     {
         $credentials = $request->only(['user_name', 'password']);
+        Alert::Error('Error','Your session has ended, please try again');
         if (Auth::guard('admin')->attempt($credentials)) {
             return redirect()->route('admin_index');
         } else {
+            Alert::Error('Error','Your session has ended, please try again');
             return redirect()->route('admin_login');
         }
     }

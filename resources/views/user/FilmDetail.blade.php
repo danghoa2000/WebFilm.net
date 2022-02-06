@@ -79,9 +79,9 @@
                                 }
                             ?>
                             <span class="follow-btn popup-link" style="cursor: pointer" id="bt-follow" data-container="body" data-toggle="popover" data-placement="top" data-content=""><i class="fa fa-heart-o"></i> {{__('Follow')}}</span>
-                            @if (isset($data->link_trailer))
+                            {{-- @if (isset($data->link_trailer)) --}}
                                 <span class="follow-btn popup-link" style="cursor: pointer" id="trailler">{{__('Trailler')}}</span>
-                            @endif
+                            {{-- @endif --}}
                             <a href="{{route('watching_index', ['id' => $data->id, 'episode' => 1])}}" class="watch-btn"><span>{{__('Watch Now')}}</span> <i
                                 class="fa fa-angle-right"></i></a>
                             </div>
@@ -126,7 +126,7 @@
                         </div>
                         @foreach ($might_like as $row)
                             <div class="product__sidebar__view__item set-bg" data-setbg="{{$row->img_background}}">
-                                <div class="ep"> {{$ep[$row->id]}}</div>
+                                {{-- <div class="ep"> {{$ep[$row->id]}}</div> --}}
                                 <div class="view"><i class="fa fa-eye"></i> {{$row->luot_xem}}</div>
                                 <h5><a href="{{route('detail_index', ['id' => $row->id])}}" class="name-film">{{$row->name}}</a></h5>
                             </div>

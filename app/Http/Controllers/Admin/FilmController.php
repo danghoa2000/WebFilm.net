@@ -84,6 +84,7 @@ class FilmController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         DB::transaction(function () use($request) {
             $film = new Film();
             $film->img = '/upload/avatar/' . $this->Service->uploadimg($request);

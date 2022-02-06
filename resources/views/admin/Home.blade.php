@@ -14,7 +14,7 @@
                 <p class="title-conten-popup">{{__('Update avatar')}}</p>
                 <div class="popup-view">
                     <input type="file" name="avatar" style="display: none" id="input-change-avatar" accept=".jpg,.jpeg,.png" onchange="get_img(event)">
-                    <input type="text" name="popup_value_id" style="display: none" value="{{$data->id}}">
+                    {{-- <input type="text" name="popup_value_id" style="display: none" value="{{$data->id}}"> --}}
                     <span class="upload-avatar" id="upload-avatar"><span class="icon_upload"></span>{{__('Upload File')}}</span>
                     <img class="preview-avatar" id="preview-avatar" src="{{ asset('img/user/profile_none.png')}}" alt="User profile picture">
                 </div>
@@ -44,20 +44,14 @@
                             <div style="display: flex">
                                 <div class="text-center" style="position: relative;display: inline-block;margin: 0px auto;">
                                     <div class="avatar-border show-popup-change-avatar" >
-                                        @if ($data->avatar == null)
-                                            <img class="profile-user-img img-fluid img-circle avatar-profile" id="avatar"
-                                            src="{{ asset('img/user/profile_none.png')}}"
-                                            alt="User profile picture">
-                                        @else
-                                            <img class="profile-user-img img-fluid img-circle avatar-profile" id="avatar"
-                                            src="{{ asset($data->avatar)}}"
-                                            alt="User profile picture">
-                                        @endif
+                                        <img class="profile-user-img img-fluid img-circle avatar-profile" id="avatar"
+                                        src="{{ asset('img/user/profile_none.png')}}"
+                                        alt="User profile picture">
                                     </div>
                                     <span class="icon_image show-popup-change-avatar" id="icon_change_profile" style=""></span>
                                 </div>
                             </div>
-                            <h3 class="profile-username text-center">{{ $data->name }}</h3>
+                            <h3 class="profile-username text-center">Admin</h3>
 
                             <p class="text-muted text-center">{{__('Manager')}}</p>
                         </div>
@@ -71,7 +65,7 @@
                             <form action="{{route('admin_update_profile')}}" id="edit-admin-form" method="post" enctype="multipart/form-data">
                             @csrf
                                 <ul class="list-group list-group-unbordered mb-3">
-                                    <li class="list-group-item">
+                                    {{-- <li class="list-group-item">
                                         <b>{{__('Email')}}</b> <a class="float-right">{{$data->email}}</a>
                                     </li>
                                     <li class="list-group-item">
@@ -82,7 +76,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <b>{{__('Birthday')}}</b> <a class="float-right hidden-edit">{{$data->birthday}}</a><input type="date" class="input-edit-profile" name="birthday" value="{{$data->birthday}}">
-                                    </li>
+                                    </li> --}}
                                     <li class="list-group-item">
                                         <b>{{__('Password')}}</b> <a class="float-right hidden-edit">**********</a>
                                         <input type="password" class="input-edit-profile" id="password" name="password" placeholder="{{__('current password')}}" aria-invalid="false">

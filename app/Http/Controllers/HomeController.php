@@ -24,7 +24,7 @@ class HomeController extends Controller
             'img',
             'name',
             'luot_xem'
-        )->where('flag_delete', ACTIVE)->get()->random(5);
+        )->where('flag_delete', ACTIVE)->get();
 
         $new_film = Film::select(
             'id',
